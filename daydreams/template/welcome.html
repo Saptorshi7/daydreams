@@ -1,0 +1,46 @@
+
+
+<html>
+<head>
+<title>Daydreams</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <style>
+    .button1 {
+    background-color: #e5e5e5;
+    border: 1px solid #a4aaa9;
+    color: black;
+    padding: 2.5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+a:hover {
+    border: 1px solid #0b4749;
+    color: black;
+    background-color: #e5e5e5;
+    text-decoration: none;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Welcome to Daydreams</h1>
+{% if user.username %}
+    <p> {{ user.username }}</p>
+    <p>
+Here you can show your content!</p><br/>
+<a href="{% url 'user_logout' %}" class="button1">Logout!</a>
+{% else %}
+<p>Welcome anonymous user!
+You need to <a href="login/" class="button1">Login</a></p>
+{% endif %}
+</body>
+</div>
+</html>

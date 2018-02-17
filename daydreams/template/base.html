@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Daydreams{% endblock %}</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <style>
+    .button1 {
+    background-color: #e5e5e5;
+    border: 1px solid #a4aaa9;
+    color: black;
+    padding: 2.5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+a:hover {
+    border: 1px solid #0b4749;
+    color: black;
+    background-color: #e5e5e5;
+    text-decoration: none;
+}
+
+form {
+  border : 2px solid black;
+  padding : 20px;
+  border-radius: 5px;
+}
+
+</style>
+
+  </head>
+  <body>
+    <header>
+       <nav class="navbar navbar-inverse">
+         <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Daydreams</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'signup' %}">Register</a></li>
+       {% if user.is_authenticated %}
+      <li> <a href="{% url 'user_logout' %}">logout</a></li>
+      {% else %}
+      <li><a href="{% url 'login' %}">Login</a></li>
+
+       {% endif %}
+    </ul>
+  </div>
+</nav>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>

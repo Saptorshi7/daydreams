@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+    <div class="container">
+  <h2>Info</h2>
+  <form method="post">
+    {% csrf_token %}
+     <b>First name:</b> <input type="text" name="first_name" value="" size="25" />
+            <br><br>
+      <b>Last name:</b> <input type="text" name="last_name" value="" size="25" />
+            <br><br>
+
+      <button type="submit">Update</button>
+      </form>
+        </div>
+    {% else %}
+
+
+<p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+{% endif %}
+{% endblock %}
